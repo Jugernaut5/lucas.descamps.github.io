@@ -1,0 +1,1026 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway:300|Monoton|Poppins:500&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    border: none;
+    outline: none;
+    font-family: 'Poppins', sans-serif;
+}
+
+html{
+    font-size: 62.5%;
+}
+
+body{
+    width: 100%;
+    height: 100vh;
+    overflow-x: hidden;
+    background-color: rgba(35, 35, 35, 0.945);
+    color:white;
+}
+
+header{
+    margin-top: 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 1rem 9%;
+    background-color: transparent;
+    filter: drop-shadow(10px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+}
+
+.logo{
+    font-size: 3rem;
+    color:rgb(69, 124, 213);
+    font-weight: 800;
+    cursor: pointer;
+    transition: 0.5s ease;
+}
+
+.logo:hover{
+    transform: scale(1.1)
+}
+
+nav a{
+    font-size: 1.8rem;
+    color: white;
+    margin-left: 4rem;
+    font-weight: 500;
+    transition: 0.3s ease;
+    border-bottom: 3px solid transparent;
+}
+
+nav a:hover,
+nav a.active{
+    color:rgb(69, 124, 213);
+    border-bottom: 3px solid rgb(69, 124, 213);
+}
+
+@media(max-width: 995px){
+    nav{
+        position: absolute;
+        display: none;
+        top: 0;
+        right: 0;
+        width: 40%;
+        border-left: 3px solid rgb(69, 124, 213);
+        border-bottom: 3px solid rgb(69, 124, 213);
+        border-bottom-left-radius: 2rem;
+        padding: 1rem solid;
+        background-color:#161616;
+        border-top: 0.1rem solid rgba(0, 0, 0, 0.1);
+    }
+
+    nav.active{
+        display: block;
+    }
+
+    nav a{
+        display: block;
+        font-size: 2rem;
+        margin: 3rem 0;
+    }
+
+    nav a:hover,
+    nav a.active{
+        padding: 1rem;
+        border-radius: 0.5rem;
+        border-bottom: 0.5rem solid rgb(69, 124, 213);
+    }
+}
+
+section{
+    min-height: 100vh;
+    padding: 5rem 9% 5rem;
+}
+
+.home{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8rem;
+    background-color: rgba(35, 35, 35, 0.945);
+}
+
+.home .home-content h1{
+    font-size: 7rem;
+    font-weight: 800;
+    line-height: 1.4;
+}
+
+span{
+    color: rgb(69, 124, 213);
+}
+
+.home-content h3{
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.home-img{
+    border-radius: 50%;
+}
+
+.home-img img{
+    position: relative;
+    width: 32vw;
+    border-radius: 50%;
+    box-shadow: 0 0 25px solid rgb(69, 124, 213);
+    cursor: pointer;
+    transition: 0.2s linear;
+}
+
+.home-img img:hover{
+    font-size: 1.8rem;
+    font-weight: 500;
+}
+
+.social-icons a{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 5rem;
+    height: 5rem;
+    background-color: transparent;
+    border: 0.2rem solid rgb(69, 124, 213);
+    font-size: 2.5rem;
+    border-radius: 50%;
+    margin: 3rem 1.5rem 3rem;
+    transition: 0.3s ease;
+    color: white;
+}
+
+.social-icons a:hover{
+    color:black;
+    transform: scale(1.3) translateY(-5px);
+    background-color: rgb(69, 124, 213);
+    box-shadow: 0 0 25px rgb(69, 124, 213);
+}
+
+.btn{
+    display: inline-block;
+    padding: 1.5rem 3rem;
+    background-color: black;
+    border-radius: 4rem;
+    font-size: 2rem;
+    color: rgb(69, 124, 213);
+    letter-spacing: 0.3rem;
+    font-weight: 600;
+    border: 2px solid rgb(69, 124, 213);
+    transition: 0.3s ease;
+    cursor: pointer;
+}
+
+.btn:hover{
+    transform: scale3d(1.03);
+    background-color: rgb(69, 124, 213);
+    color: black;
+    box-shadow: 0 0 25px rgb(69, 124, 213);
+}
+
+.typing-text{
+    font-size: 34px;
+    font-weight: 600;
+    min-width: 280px;
+}
+
+.typing-text span{
+    position: relative;
+}
+
+.typing-text span::before{
+    content: " Étudiant en GEII";
+    color: rgb(69, 124, 213);
+    animation: words 20s infinite;
+}
+
+.typing-text span::after{
+    content: "";
+    background-color: rgba(41, 41, 41, 0.945);
+    position: absolute;
+    width: calc(100% + 8px);
+    height: 100%;
+    border-left: 3px solid black;
+    right: -8;
+    animation: cursor 0.6s infinite;
+}
+
+@keyframes cursor{
+    to{
+        border-left: 3px solid rgb(69, 124, 213);
+    }
+}
+
+@keyframes words{
+    0%, 34%{
+        content: " Étudiant en GEII";
+    }
+    35%, 66%{
+        content: " Automaticien";
+    }
+    67%, 100%{
+        content: " Technicien ";
+    }
+}
+
+@media(max-width: 1000px){
+    .home{
+        gap: 4rem;
+    }
+}
+
+@media(max-width: 995px){
+    .home{
+        flex-direction: column;
+        margin: 5rem 4rem;
+    }
+    .home .home-content h3{
+        font-size: 2.5rem;
+    }
+    .home-content h1{
+        font-size: 5rem;
+    }
+    .home-img img{
+        width: 70vh;
+        margin-top: 4rem;
+    }
+}
+/* Conteneur principal */
+#profile-container {
+    perspective: 1000px; /* Effet 3D */
+    width: 400px; /* Taille ajustée */
+    height: 400px;
+    margin: 50px auto; /* Centré */
+}
+
+/* Carte qui se retourne */
+.profile-card {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.8s ease-in-out;
+    border-radius: 50%; /* Rond */
+}
+
+/* Avant et arrière de la carte */
+.profile-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;  /* Ajuste l'image sans l'étirer */
+    position: absolute;
+    backface-visibility: hidden;
+    border-radius: 50%;
+    box-shadow: 0px 0px 20px rgba(69, 124, 213, 0.6); /* Effet glow */
+}
+
+/* Image arrière */
+.profile-card .back {
+    transform: rotateY(180deg);
+}
+
+/* Classe pour retourner la carte */
+.flipped {
+    transform: rotateY(180deg);
+}
+
+/* Responsive : Ajuste la taille pour petits écrans */
+@media (max-width: 768px) {
+    #profile-container {
+        width: 220px;
+        height: 220px;
+    }
+}
+
+
+/*partie contact*/
+.contact {
+    text-align: center;
+    padding: 4rem 10%;
+    background-color: transparent;
+    border-radius: 80px;
+    margin-top: 200px;
+    margin:40px auto;
+    width: 80%;
+    background-color: rgba(35, 35, 35, 0.945);
+
+}
+
+.contact h2 {
+    font-size: 3rem;
+    color: rgb(69, 124, 213);
+    margin-bottom: 2rem;
+    margin-top: 200px;
+}
+
+.contact-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+
+.contact-info {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    
+}
+
+.contact-info p {
+    margin: 10px 0;
+}
+
+.contact-info a {
+    color: rgb(69, 124, 213);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.contact-info a:hover {
+    text-decoration: underline;
+}
+
+.map-container {
+    width: 100%;
+    max-width: 600px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+
+/*Partie compétences*/
+/* Style du tableau */
+table {
+    width: 80%;
+    margin: auto;
+    border-collapse: collapse;
+    background-color: rgba(35, 35, 35, 0.945);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+th, td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    font-size: 1.6rem;
+}
+
+th {
+    background: rgba(69, 108, 224, 0.8);
+    color: white;
+}
+
+tr {
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+tr:hover {
+    background: rgba(69, 108, 224, 0.5);
+}
+
+/* Zone où l’image et la description s'affichent */
+#competence-details {
+    margin-top: 30px;
+    text-align: center;
+}
+
+#competence-details img {
+    width: 50%;
+    max-width: 400px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(69, 108, 224, 0.8);
+    margin-bottom: 15px;
+}
+
+#competence-description {
+    font-size: 1.8rem;
+    color: white;
+}
+
+/* Caché par défaut */
+.hidden {
+    display: none;
+}
+/* Centrage de la section compétences */
+#competences {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; /* Pour occuper toute la hauteur de l'écran */
+    text-align: center;
+}
+
+/* Style du tableau */
+table {
+    width: 60%;
+    margin: 20px auto; /* Centre le tableau */
+    border-collapse: collapse;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+/* Zone image et description */
+#competence-details {
+    margin-top: 20px;
+    text-align: center;
+    max-width: 600px;
+}
+
+
+/* Fond animé */
+body {
+    background-color: #000;
+    margin: 0;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Conteneur pour les formes */
+#animated-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1; /* Derrière le contenu */
+}
+
+/* Styles des cercles animés */
+.circle {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(69, 108, 224, 0.3);
+    box-shadow: 0 0 10px rgba(69, 108, 224, 0.8);
+    animation: float 6s infinite ease-in-out alternate, pulse 3s infinite ease-in-out;
+}
+
+/* Animation de flottement */
+@keyframes float {
+    0% { transform: translateY(0px); }
+    100% { transform: translateY(-30px); }
+}
+
+/* Effet de pulsation */
+@keyframes pulse {
+    0% { opacity: 0.7; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.2); }
+    100% { opacity: 0.7; transform: scale(1); }
+}
+
+/* Encadré autour de la section Mon Parcours */
+#parcours {
+    text-align: center;
+    padding: 50px 10%;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    margin-top: 200px;
+    border: 2px solid gray;
+    border-radius: 15px;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.2);
+}
+
+/* Timeline centrale */
+.timeline {
+    position: relative;
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+}
+
+/* Style des éléments de la timeline */
+.timeline-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 50px;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+/* Quand les éléments sont visibles */
+.timeline-item.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Contenu de la timeline */
+.timeline-content {
+    width: 45%;
+    padding: 20px;
+    background: rgba(69, 108, 224, 0.2);
+    border-radius: 10px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    text-align: center;
+    color: white;
+}
+
+/* Images */
+.timeline-img img {
+    width: 200px;
+    border-radius: 10px;
+    border: 2px solid gray;
+    box-shadow: 0px 0px 10px rgba(69, 108, 224, 0.5);
+}
+
+/* Aligner le texte */
+.left {
+    text-align: right;
+}
+
+.right {
+    text-align: left;
+}
+
+/* Flèches entre les parcours */
+.timeline-item::after {
+    content: "↓";
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 30px;
+    color: rgb(69, 108, 224);
+    margin-top: 20px;
+}
+
+/* Suppression de la flèche après le dernier élément */
+.timeline-item:last-child::after {
+    content: "";
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .timeline-item {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .timeline-content, .timeline-img {
+        width: 100%;
+    }
+    
+    .left, .right {
+        text-align: center;
+    }
+}
+
+/* STAGE SECTION */
+#stages {
+    padding: 80px 10%;
+    background-color: transparent;
+    color: white;
+    text-align: center;
+    margin-top: 100px;
+}
+
+.stage-timeline {
+    position: relative;
+    max-width: 800px;
+    margin: auto;
+}
+
+.stage-item {
+    margin: 40px 0;
+    position: relative;
+    padding-left: 40px;
+    border-left: 3px solid #4668e3;
+}
+
+.stage-item::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -9px;
+    width: 18px;
+    height: 18px;
+    background-color: #4668e3;
+    border-radius: 50%;
+    border: 2px solid white;
+}
+
+.stage-content {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(70, 104, 227, 0.4);
+    transition: transform 0.3s ease;
+}
+
+.stage-content:hover {
+    transform: translateY(-5px);
+}
+
+.stage-content h3 {
+    color: #87cefa;
+    margin-bottom: 10px;
+}
+
+@media screen and (max-width: 768px) {
+    .stage-timeline {
+        padding-left: 20px;
+    }
+    .stage-item {
+        padding-left: 30px;
+    }
+}
+.sadtem-logo {
+    width: 120px;
+    display: block;
+    margin: 20px auto;
+}
+
+.sadtem-photo {
+    max-width: 90%;
+    width: 600px;
+    margin: 40px auto 0 auto;
+    display: block;
+    border-radius: 12px;
+    box-shadow: 0 0 12px rgba(255, 255, 255, 0.2);
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #0a0a23;
+    color: white;
+}
+
+header {
+    background-color: #111;
+    padding: 20px 10%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #333;
+}
+
+.logo {
+    font-size: 1.5em;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav a {
+    margin-left: 20px;
+    color: #ccc;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+nav a.active,
+nav a:hover {
+    color: #87cefa;
+}
+
+#projets {
+    padding: 80px 10%;
+    background-color: transparent;
+    color: white;
+    text-align: center;
+}
+
+#projets h2 {
+    font-size: 2.5em;
+    color: #87cefa;
+    margin-bottom: 60px;
+    text-shadow: 0 0 10px #4668e3;
+}
+
+.projet-block {
+    background: rgba(255, 255, 255, 0.05);
+    margin-bottom: 40px;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 0 12px rgba(70, 104, 227, 0.3);
+    transition: transform 0.3s ease;
+    text-align: left;
+}
+
+.projet-block:hover {
+    transform: translateY(-5px);
+}
+
+.projet-block h3 {
+    color: #60a5fa;
+    margin-bottom: 15px;
+    font-size: 1.5em;
+}
+
+.projet-block p {
+    font-size: 1.1em;
+    line-height: 1.7;
+    color: #e0e0e0;
+}
+
+@media screen and (max-width: 768px) {
+    #projets {
+        padding: 60px 5%;
+    }
+
+    .projet-block {
+        padding: 20px;
+    }
+
+    .projet-block h3 {
+        font-size: 1.3em;
+    }
+
+    .projet-block p {
+        font-size: 1em;
+    }
+}
+.projet-image {
+    width: 100%;
+    max-width: 600px;
+    margin-top: 15px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(70, 104, 227, 0.4);
+}
+html, body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    height: auto;
+    overflow-x: hidden;
+    font-family: 'Segoe UI', sans-serif;
+}
+.competence-section {
+    padding-top: 120px; /* Ajustement */
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-bottom: 80px;
+    color: white;
+    background-color: transparent;
+    text-align: justify;
+}
+.competence-image {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.competence-image img {
+    width: 180px;
+    height: auto;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.competence-image img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Lightbox */
+#lightbox {
+    display: none;
+    position: fixed;
+    z-index: 999;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.8);
+    align-items: center;
+    justify-content: center;
+}
+
+#lightbox img {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 10px;
+}
+.competence-image, .competence-images {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+figure {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 300px;
+    margin: 10px;
+}
+
+figcaption {
+    margin-top: 8px;
+    font-size: 0.9em;
+    text-align: center;
+    color: #979797;
+}
+/* Pour le titre de chaque compétence */
+.competence-section h2 {
+    font-size: 2em; /* Taille du titre principale */
+    margin-top: 40px;
+}
+
+/* Pour les sous-titres (Contexte, Analyse, etc.) */
+.competence-section h3 {
+    font-size: 1.5em; /* Sous-titre */
+    margin-top: 20px;
+}
+
+/* Pour les paragraphes (texte courant) */
+.competence-section p {
+    font-size: 1.2em;
+    line-height: 1.6;
+}
+
+/* Pour les listes à puces */
+.competence-section ul li {
+    font-size: 1.2em;
+    margin-bottom: 5px;
+}
+
+/* Pour les légendes sous les images */
+.competence-image figcaption {
+    font-size: 1em;
+    text-align: center;
+    margin-top: 5px;
+    color: #666;
+}
+.competence-image figure {
+    margin: 0 2cm; /* 2 cm à gauche et à droite */
+    display: inline-block;
+    text-align: center;
+}
+
+.competence-images {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2cm; /* Espace entre les images */
+    margin-top: 30px;
+}
+
+.competence-images figure {
+    flex: 1 1 300px; /* chaque image prend un espace flexible avec min 300px */
+    text-align: center;
+    max-width: 300px;
+}
+
+.competence-images img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
+}
+
+.competence-images figcaption {
+    margin-top: 8px;
+    font-size: 1em;
+    color: #555;
+}
+/* Section "En savoir plus" */
+.extra-info {
+    display: none;
+    margin-top: 30px;
+    background-color: #363232;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.extra-info h3 {
+    margin-top: 15px;
+    color: #333;
+}
+
+.extra-info p {
+    font-size: 1.1em;
+    line-height: 1.6;
+}
+
+.travel-photos {
+    display: flex;
+    gap: 1rem;
+    margin-top: 10px;
+    flex-wrap: wrap;
+}
+
+.travel-photos img {
+    width: 200px;
+    border-radius: 10px;
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.15);
+}
+
+.btn.toggle-section {
+    margin-top: 15px;
+    background-color: #0077cc;
+    color: rgb(0, 0, 0);
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+.btn.toggle-section:hover {
+    background-color: #005fa3;
+}
+
+/* Lightbox fond sombre plein écran */
+.lightbox {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    justify-content: center;
+    align-items: center;
+}
+
+.lightbox img {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+    animation: zoomIn 0.3s ease;
+    object-fit: contain;
+}
+
+.competence-section h2 {
+    color: rgb(228, 24, 24);
+}
+#lightbox {
+  display: none; /* cachée par défaut */
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    cursor: pointer;
+}
+
+#lightbox-img {
+    max-width: 90%;
+    max-height: 90%;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.7);
+    border-radius: 8px;
+  cursor: default; /* pas de main au survol de l'image */
+    transition: transform 0.3s ease;
+}
+
+#lightbox-img:hover {
+    transform: scale(1.05);
+}
+.projet-pro {
+    margin: 60px auto;
+    padding: 20px;
+    background-color: #1c1c1c;
+    border-left: 5px solid #00aaff;
+    border-radius: 8px;
+    color: #f0f0f0;
+    max-width: 800px;
+}
+
+.projet-pro h2 {
+    font-size: 1.8em;
+    margin-bottom: 10px;
+    color: #00aaff;
+}
+
+.projet-pro p {
+    font-size: 1.1em;
+    line-height: 1.6;
+}
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+

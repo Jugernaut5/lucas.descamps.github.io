@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Lightbox améliorée avec navigation</title>
+<style>
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f0f0f0;
+    margin: 20px;
+  }
+
+  /* Galerie */
+  .gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+  }
+  .gallery img {
+    width: 180px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .gallery img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+  }
+
+  /* Lightbox overlay */
+  #lightbox {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.35s ease;
+    z-index: 9999;
+  }
+  #lightbox.active {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  /* Image agrandie */
+  #lightbox-img {
+    max-width: 90vw;
+    max-height: 85vh;
+    border-radius: 10px;
+    box-shadow: 0 0 40px rgba(255,255,255,0.4);
+    user-select: none;
+  }
+
+  /* Croix fermeture */
+  #lightbox-close {
+    position: fixed;
+    top: 25px;
+    right: 30px;
+    font-size: 36px;
+    color: #fff;
+    cursor: pointer;
+    user-select: none;
+    font-weight: 700;
+    transition: color 0.3s ease;
+    z-index: 10001;
+  }
+  #lightbox-close:hover {
+    color: #ff4c4c;
+  }
+
+  /* Flèches navigation */
+  .nav-arrow {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 48px;
+    color: #fff;
+    cursor: pointer;
+    user-select: none;
+    background: rgba(0,0,0,0.3);
+    padding: 12px 16px;
+    border-radius: 50%;
+    transition: background 0.3s ease, color 0.3s ease;
+    z-index: 10001;
+    box-shadow: 0 0 12px rgba(255,255,255,0.4);
+  }
+  .nav-arrow:hover {
+    background: rgba(255,255,255,0.3);
+    color: #000;
+  }
+  #prev-arrow {
+    left: 30px;
+  }
+  #next-arrow {
+    right: 30px;
+  }
+
+  /* Responsive */
+  @media (max-width: 600px) {
+    .gallery img {
+      width: 45vw;
+      height: 30vw;
+    }
+    #lightbox-img {
+      max-width: 95vw;
+      max-height: 80vh;
+    }
+    #lightbox-close {
+      font-size: 28px;
+      top: 15px;
+      right: 20px;
+    }
+    .nav-arrow {
+      font-size: 36px;
+      padding: 10px 14px;
+    }
+  }
+</style>
+</head>
+<body>
+
+<h1>Galerie photos améliorée</h1>
+
+<div class="gallery" aria-label="Galerie d'images">
+  <img src="https://picsum.photos/id/1015/600/400" alt="Montagne enneigée" data-index="0" tabindex="0" />
+  <img src="https://picsum.photos/id/1016/600/400" alt="Rivière en forêt" data-index="1" tabindex="0" />
+  <img src="https://picsum.photos/id/1018/600/400" alt="Ciel au coucher de soleil" data-index="2" tabindex="0" />
+  <img src="https://picsum.photos/id/1020/600/400" alt="Plage et rochers" data-index="3" tabindex="0" />
+</div>
+
+<!-- Lightbox -->
+<div id="lightbox" role="dialog" aria-modal="true" aria-label="Affichage de l'image agrandie">
+  <span id="lightbox-close" role="button" aria-label="Fermer la lightbox" tabindex="0">&times;</span>
+  <span id="prev-arrow" class="nav-arrow" role="button" aria-label="Image précédente" tabindex="0">&#10094;</span>
+  <img id="lightbox-img" src="" alt="Image agrandie" />
+  <span id="next-arrow" class="nav-arrow" role="button" aria-label="Image suivante" tabindex="0">&#10095;</span>
+</div>
+
+<script>
+  const images = document.querySelectorAll('.gallery img');
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightbox-img');
+  const closeBtn = document.getElementById('lightbox-close');
+  const prevArrow = document.getElementById('prev-arrow');
+  const nextArrow = document.getElementById('next-arrow');
+
+  let currentIndex = 0;
+
+  // Ouvre la lightbox avec l'image sélectionnée
+  function openLightbox(index) {
+    currentIndex = index;
+    updateImage();
+    lightbox.classList.add('active');
+    // Focus sur le bouton fermer pour accessibilité clavier
+    closeBtn.focus();
+  }
+
+  // Met à jour l'image affichée
+  function updateImage() {
+    const img = images[currentIndex];
+    lightboxImg.src = img.src;
+    lightboxImg.alt = img.alt;
+  }
+
+  // Fermer la lightbox
+  function closeLightbox() {
+    lightbox.classList.remove('active');
+    lightboxImg.src = '';
+  }
+
+  // Image précédente
+  function showPrev() {
+    currentIndex = (currentIndex - 1 + images.length) % images.length;
+    updateImage();
+  }
+
+  // Image suivante
+  function showNext() {
+    currentIndex = (currentIndex + 1) % images.length;
+    updateImage();
+  }
+
+  // Gestion des clics sur les images pour ouvrir lightbox
+  images.forEach((img, idx) => {
+    img.addEventListener('click', () => openLightbox(idx));
+    img.addEventListener('keydown', e => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        openLightbox(idx);
+        e.preventDefault();
+      }
+    });
+  });
+
+  // Fermer lightbox avec la croix
+  closeBtn.addEventListener('click', closeLightbox);
+  closeBtn.addEventListener('keydown', e => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      closeLightbox();
+      e.preventDefault();
+    }
+  });
+
+  // Flèches navigation
+  prevArrow.addEventListener('click', showPrev);
+  prevArrow.addEventListener('keydown', e => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      showPrev();
+      e.preventDefault();
+    }
+  });
+
+  nextArrow.addEventListener('click', showNext);
+  nextArrow.addEventListener('keydown', e => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      showNext();
+      e.preventDefault();
+    }
+  });
+
+  // Fermer lightbox en cliquant en dehors de l'image
+  lightbox.addEventListener('click', e => {
+    if (e.target === lightbox) {
+      closeLightbox();
+    }
+  });
+
+  // Navigation clavier (flèches et Échap)
+  document.addEventListener('keydown', e => {
+    if (!lightbox.classList.contains('active')) return;
+
+    switch (e.key) {
+      case 'ArrowLeft':
+        showPrev();
+        break;
+      case 'ArrowRight':
+        showNext();
+        break;
+      case 'Escape':
+        closeLightbox();
+        break;
+    }
+  });
+
+  // (Bonus) Swipe tactile simple pour mobiles
+  let touchStartX = 0;
+  let touchEndX = 0;
+
+  lightboxImg.addEventListener('touchstart', e => {
+    touchStartX = e.changedTouches[0].screenX;
+  });
+
+  lightboxImg.addEventListener('touchend', e => {
+    touchEndX = e.changedTouches[0].screenX;
+    handleGesture();
+  });
+
+  function handleGesture() {
+    if (touchEndX < touchStartX - 40) {
+      showNext();
+    }
+    if (touchEndX > touchStartX + 40) {
+      showPrev();
+    }
+  }
+</script>
+
+</body>
+</html>

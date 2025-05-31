@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lucas Descamps Portfolio</title>
+    <link rel="stylesheet" href="index.css">
+    <script src="https://kit.fontawesome.com/c233cb2fc3.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+</head>
+<body>
+    <header>
+        <a href="#" class="logo">Lucas</a>
+
+        <nav>
+            <a href="index.html" >Home</a>
+            <a href="compétences.html" >Compétences</a>
+            <a href="parcours.html" class="active" >Parcours</a>
+            <a href="projets.html" >Projets</a>
+            <a href="stage.html" >Stages</a>
+            <a href="contact.html"  >Contact</a>
+        </nav>
+    </header> 
+    <section id="parcours">
+    <h2>Mon Parcours</h2>
+    <div class="timeline">
+        <div class="timeline-item">
+            <div class="timeline-content left">
+                <h3>BAC STL Bio</h3>
+                <p>Réalisé au Lycée de l'Escaut à Valenciennes.</p>
+            </div>
+            <div class="timeline-img">
+                <img src="images/lycée de lescaut .jpg" alt="Lycée de l'Escaut">
+            </div>
+        </div>
+        <div class="timeline-item">
+            <div class="timeline-content right">
+                <h3>Licence IAE</h3>
+                <p>Deux années de licence réalisées à l'IAE de Valenciennes (Mont Houy).</p>
+            </div>
+            <div class="timeline-img">
+                <img src="images/IAE valenciennes.jpg" alt="IAE Université de Valenciennes">
+            </div>
+        </div>
+        <div class="timeline-item">
+            <div class="timeline-content left">
+                <h3>BUT GEII 3ème année</h3>
+                <p>Actuellement en BUT GEII 3ème année à l'Université de Valenciennes (Mont Houy).</p>
+            </div>
+            <div class="timeline-img">
+                <img src="images/université valenciennes.jpg" alt="Université de Valenciennes Mont Houy">
+            </div>
+    </div>
+</section>
+        </div>
+    </div>
+</section>
+    <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const bgContainer = document.createElement("div");
+        bgContainer.id = "animated-bg";
+        document.body.appendChild(bgContainer);
+    
+        const numCircles = 15; // Nombre de cercles
+        for (let i = 0; i < numCircles; i++) {
+            const circle = document.createElement("div");
+            circle.classList.add("circle");
+    
+            // Tailles aléatoires pour plus de variation
+            const size = Math.random() * 100 + 50; 
+            circle.style.width = `${size}px`;
+            circle.style.height = `${size}px`;
+    
+            // Position aléatoire sur l'écran
+            circle.style.top = `${Math.random() * 100}vh`;
+            circle.style.left = `${Math.random() * 100}vw`;
+    
+            // Délai d'animation aléatoire
+            circle.style.animationDelay = `${Math.random() * 3}s`;
+    
+            bgContainer.appendChild(circle);
+        }
+    });
+    </script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        let items = document.querySelectorAll(".timeline-item");
+        function reveal() {
+            items.forEach(item => {
+                let rect = item.getBoundingClientRect();
+                if (rect.top < window.innerHeight - 100) {
+                    item.classList.add("visible");
+                }
+            });
+        }
+        window.addEventListener("scroll", reveal);
+        reveal(); // Pour déclencher l'effet immédiatement si déjà visible
+    });
+    </script>
+    
+</body>
+</html>

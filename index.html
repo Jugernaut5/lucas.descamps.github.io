@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lucas Descamps Portfolio</title>
+    <link rel="stylesheet" href="index.css">
+    <script src="https://kit.fontawesome.com/c233cb2fc3.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+</head>
+<body>
+    <header>
+        <a href="#" class="logo">Lucas</a>
+        
+
+        <nav>
+            <a href="index.html" class="active" >Home</a>
+            <a href="compétences.html" >Compétences</a>
+            <a href="parcours.html" >Parcours</a>
+            <a href="projets.html" >Projets</a>
+            <a href="stage.html" >Stages</a>
+            <a href="contact.html"  >Contact</a>
+        </nav>
+    </header> 
+    <section class="home">
+    <div class="home-img" id="profile-container">
+        <div class="profile-card">
+            <img src="images/Photo profil site internet 2.jpg" alt="Profil avant" class="front">
+            <img src="images/Photo profil site internet.jpg" alt="Profil arrière" class="back">
+        </div>
+    </div>
+    
+        <div class="home-content">
+            <h1>Bonjour, moi c'est <span>Lucas</span></h1>
+            <h3 class="typing-text">Je suis<span></span></h3>
+            <p>j'ai 22 ans et je suis actuellement en troisième année de BUT Génie Électrique et Informatique Industrielle (GEII), avec une spécialisation en Automatisme et Informatique Industrielle (AII). Passionné par les nouvelles technologies et l'automatisation, je développe mes compétences à travers mes études et divers projets.</p>
+            <div class="social-icons">
+                <a href="https://www.linkedin.com/in/lucas-descamps-756362344/" target="_blank" rel="noopener noreferrer"><i class="fa fa-linkedin"></i></a>
+                <a href="mailto:lucas.descamps890@gmail.com" target="_blank" rel="noopener noreferrer"><i class="fa fa-envelope"></i></a>
+            </div>
+            <a href="documents/CV_lucas_descamps.pdf" class="btn" target="_blank" download="CV_lucas_descamps.pdf"> Télécharger mon CV</a>
+            <button class="btn toggle-section">En savoir plus</button>
+
+<div class="extra-info" id="extraInfo">
+    <h3>👨‍🍳 Job d'été</h3>
+<div class="job-container">
+    <img src="images/logo_fluch.png" alt="Logo Flunch" class="flunch-logo"onclick="openLightbox(this)">
+    <p>
+        Je suis en contrat étudiant au <strong>Flunch de Petite-Forêt</strong> en tant qu'<strong>agent polyvalent de restauration</strong> :
+        service, entretien, mise en place des buffets, relation client.
+    </p>
+
+    <h3>✈️ Voyages</h3>
+    <p>J'ai eu l'occasion de voyager, notamment en <strong>Espagne à Lloret de Mar</strong>, une expérience riche en découvertes culturelles.</p>
+    <div class="travel-photos">
+        <img src="images/maps lloret de mar.jpg" alt="Plage à Lloret del Mar"onclick="openLightbox(this)">
+        <img src="images/lloret de mar.jpg" alt="Ville de Lloret del Mar"onclick="openLightbox(this)">
+    </div>
+
+    <h3>🎮 Hobbies</h3>
+    <p>Je suis passionné par les <strong>jeux vidéo</strong> (FPS, stratégie, simulation), le <strong>sport</strong> comme la <strong>course à pied</strong> et bien d'autres choses encore...</p>
+</div>
+
+    <div class="projet-pro">
+        <h2>Projet Professionnel</h2>
+        <p>
+            Je souhaite poursuivre mes études en Master Robotique en alternance ou dans le secteur de l'automatisme. 
+            Grâce à mes stages réalisés durant mon cursus, j’ai également découvert un fort intérêt pour le domaine de l’énergie. 
+            Ces expériences professionnelles m'ont beaucoup plu et m'ont ouvert à la possibilité d’intégrer ce secteur.
+        </p>
+
+    </div>
+
+        </div>
+    </section>
+    <script>
+    
+    document.addEventListener("DOMContentLoaded", function () {
+        const bgContainer = document.createElement("div");
+        bgContainer.id = "animated-bg";
+        document.body.appendChild(bgContainer);
+    
+        const numCircles = 15; // Nombre de cercles
+        for (let i = 0; i < numCircles; i++) {
+            const circle = document.createElement("div");
+            circle.classList.add("circle");
+    
+            // Tailles aléatoires pour plus de variation
+            const size = Math.random() * 100 + 50; 
+            circle.style.width = `${size}px`;
+            circle.style.height = `${size}px`;
+    
+            // Position aléatoire sur l'écran
+            circle.style.top = `${Math.random() * 100}vh`;
+            circle.style.left = `${Math.random() * 100}vw`;
+    
+            // Délai d'animation aléatoire
+            circle.style.animationDelay = `${Math.random() * 3}s`;
+    
+            bgContainer.appendChild(circle);
+        }
+    });
+    document.addEventListener("DOMContentLoaded", function () {
+        const logo = document.querySelector(".logo");
+        const profileCard = document.querySelector(".profile-card");
+
+        logo.addEventListener("click", function () {
+            profileCard.classList.toggle("flipped");
+        });
+    });
+</script>
+
+    </script>
+    <script>
+document.querySelector(".toggle-section").addEventListener("click", function () {
+    const section = document.getElementById("extraInfo");
+    section.style.display = section.style.display === "block" ? "none" : "block";
+});
+</script>
+<div id="lightbox" class="lightbox" onclick="closeLightbox()">
+    <img id="lightbox-img" src="" alt="Image agrandie">
+</div>
+<script>
+function openLightbox(imgElement) {
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImg = document.getElementById("lightbox-img");
+    lightboxImg.src = imgElement.src;
+    lightbox.style.display = "flex";
+}
+
+function closeLightbox() {
+    document.getElementById("lightbox").style.display = "none";
+}
+</script>
+
+    
+</body>
+</html>

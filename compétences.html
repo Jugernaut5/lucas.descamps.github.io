@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lucas Descamps Portfolio</title>
+    <link rel="stylesheet" href="index.css">
+    <script src="https://kit.fontawesome.com/c233cb2fc3.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+</head>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const bgContainer = document.createElement("div");
+        bgContainer.id = "animated-bg";
+        document.body.appendChild(bgContainer);
+    
+        const numCircles = 15; // Nombre de cercles
+        for (let i = 0; i < numCircles; i++) {
+            const circle = document.createElement("div");
+            circle.classList.add("circle");
+    
+            // Tailles aléatoires pour plus de variation
+            const size = Math.random() * 100 + 50; 
+            circle.style.width = `${size}px`;
+            circle.style.height = `${size}px`;
+    
+            // Position aléatoire sur l'écran
+            circle.style.top = `${Math.random() * 100}vh`;
+            circle.style.left = `${Math.random() * 100}vw`;
+    
+            // Délai d'animation aléatoire
+            circle.style.animationDelay = `${Math.random() * 3}s`;
+    
+            bgContainer.appendChild(circle);
+        }
+    });
+    </script>
+    <script>
+        function showDetails(competence) {
+            let imageSrc = "";
+            let description = "";
+        
+            switch (competence) {
+                case 'rigoureux':
+                    imageSrc = "images/automatisme.jpg";
+                    description = "Exemple de TP d'automatisme où la rigueur est essentielle (projet Pick and Place).";
+                    break;
+                case 'travail_equipe':
+                    imageSrc = "images/robotique.jpg";
+                    description = "Travail sur un projet collaboratif en équipe (SAE robotique).";
+                    break;
+                case 'motive':
+                    imageSrc = "images/montage pc.jpg";
+                    description = "Un projet personnel qui illustre ma motivation (montage de mon PC).";
+                    break;
+                case 'determiner':
+                    imageSrc = "images/automatique.jpg";
+                    description = "Exemple de TP d'automatique.";
+                    break;
+                default:
+                    imageSrc = "";
+                    description = "";
+            }
+        
+            document.getElementById("competence-image").src = imageSrc;
+            document.getElementById("competence-description").innerText = description;
+            document.getElementById("competence-details").classList.remove("hidden");
+        }
+        </script>
+        
+<body>
+    <header>
+        <a href="#" class="logo">Lucas</a>
+
+        <nav>
+            <a href="index.html" >Home</a>
+            <a href="compétences.html" class="active" >Compétences</a>
+            <a href="parcours.html" >Parcours</a>
+            <a href="projets.html" >Projets</a>
+            <a href="stage.html" >Stages</a>
+            <a href="contact.html"  >Contact</a>
+        </nav>
+    </header> 
+    <section id="competences">
+    <h2>Mes Compétences personnelles</h2>
+    
+    <table>
+        <tr>
+            <th>Compétence</th>
+            <th>Description</th>
+        </tr>
+        <tr onclick="showDetails('rigoureux')">
+            <td>Rigueur</td>
+            <td>Capacité à respecter des consignes strictes et précises.</td>
+        </tr>
+        <tr onclick="showDetails('travail_equipe')">
+            <td>Travail d'équipe</td>
+            <td>Facilité à collaborer avec différents profils.</td>
+        </tr>
+        <tr onclick="showDetails('motive')">
+            <td>Motivation</td>
+            <td>Implication constante dans les projets.</td>
+        </tr>
+        <tr onclick="showDetails('determiner')">
+            <td>Détermination</td>
+            <td>Persévérance et engagement jusqu'à la réussite.</td>
+        </tr>
+    </table>
+
+    <!-- Zone où l’image et la description apparaîtront -->
+    <div id="competence-details" class="hidden">
+        <img id="competence-image" src="" alt="Illustration de la compétence">
+        <p id="competence-description"></p>
+    </div>
+</section>
