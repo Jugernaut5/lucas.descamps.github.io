@@ -1022,5 +1022,16 @@ figcaption {
     opacity: 1;
     transform: translateY(0);
 }
+html, body {
+    height: auto;
+    min-height: 100vh;
+    overflow-y: auto;
+    margin: 0;
+    padding: 0;
+}
+
+#competences {
+    padding: 40px 20px;
+}
 
 
