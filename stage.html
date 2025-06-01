@@ -13,95 +13,99 @@
         const bgContainer = document.createElement("div");
         bgContainer.id = "animated-bg";
         document.body.appendChild(bgContainer);
-    
-        const numCircles = 15; // Nombre de cercles
+
+        const numCircles = 15;
         for (let i = 0; i < numCircles; i++) {
             const circle = document.createElement("div");
             circle.classList.add("circle");
-    
-            // Tailles aléatoires pour plus de variation
-            const size = Math.random() * 100 + 50; 
+            const size = Math.random() * 100 + 50;
             circle.style.width = `${size}px`;
             circle.style.height = `${size}px`;
-    
-            // Position aléatoire sur l'écran
             circle.style.top = `${Math.random() * 100}vh`;
             circle.style.left = `${Math.random() * 100}vw`;
-    
-            // Délai d'animation aléatoire
             circle.style.animationDelay = `${Math.random() * 3}s`;
-    
             bgContainer.appendChild(circle);
         }
     });
-    </script>
-    <script>
-        function showDetails(competence) {
-            let imageSrc = "";
-            let description = "";
-        
-            switch (competence) {
-                case 'rigoureux':
-                    imageSrc = "images/automatisme.jpg";
-                    description = "Exemple de TP d'automatisme où la rigueur est essentielle (projet Pick and Place).";
-                    break;
-                case 'travail_equipe':
-                    imageSrc = "images/robotique.jpg";
-                    description = "Travail sur un projet collaboratif en équipe (SAE robotique).";
-                    break;
-                case 'motive':
-                    imageSrc = "images/montage pc.jpg";
-                    description = "Un projet personnel qui illustre ma motivation (montage de mon PC).";
-                    break;
-                case 'determiner':
-                    imageSrc = "images/automatique.jpg";
-                    description = "Exemple de TP d'automatique.";
-                    break;
-                default:
-                    imageSrc = "";
-                    description = "";
-            }
-        
-            document.getElementById("competence-image").src = imageSrc;
-            document.getElementById("competence-description").innerText = description;
-            document.getElementById("competence-details").classList.remove("hidden");
-        }
-        </script>
-        
-<body>
-   <header>
-        <a href="#" class="logo">Lucas</a>
 
-        <nav>
-            <a href="index.html" >Home</a>
-            <a href="compétences.html" >Compétences</a>
-            <a href="parcours.html" >Parcours</a>
-            <a href="projets.html" >Projets</a>
-            <a href="stage.html"class="active ">Stages</a>
-            <a href="contact.html"  >Contact</a>
-        </nav>
-   </header> 
+    function showDetails(competence) {
+        let imageSrc = "";
+        let description = "";
+
+        switch (competence) {
+            case 'rigoureux':
+                imageSrc = "images/automatisme.jpg";
+                description = "Exemple de TP d'automatisme où la rigueur est essentielle (projet Pick and Place).";
+                break;
+            case 'travail_equipe':
+                imageSrc = "images/robotique.jpg";
+                description = "Travail sur un projet collaboratif en équipe (SAE robotique).";
+                break;
+            case 'motive':
+                imageSrc = "images/montage pc.jpg";
+                description = "Un projet personnel qui illustre ma motivation (montage de mon PC).";
+                break;
+            case 'determiner':
+                imageSrc = "images/automatique.jpg";
+                description = "Exemple de TP d'automatique.";
+                break;
+        }
+
+        document.getElementById("competence-image").src = imageSrc;
+        document.getElementById("competence-description").innerText = description;
+        document.getElementById("competence-details").classList.remove("hidden");
+    }
+</script>
+
+<body>
+<header>
+    <a href="#" class="logo">Lucas</a>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="compétences.html">Compétences</a>
+        <a href="parcours.html">Parcours</a>
+        <a href="projets.html">Projets</a>
+        <a href="stage.html" class="active">Stages</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+</header>
+
 <section id="stages">
-    <h2>Mes Stages</h2>
+    <h2>Stages chez SADTEM</h2>
 
     <img src="images/sadtem-logo.png" alt="Logo SADTEM" class="sadtem-logo">
 
-    <div class="stage-timeline">
-        <div class="stage-item">
-            <div class="stage-content">
-                <h3>Technicien stagiaire - SADTEM (Douai)</h3>
-                <p>Lors de mon premier stage, j’ai été chargé de qualifier un revêtement antistatique pour transformateurs. Ce travail nécessitait rigueur, méthode et tests approfondis en environnement industriel.</p>
-            </div>
-        </div>
+    <p>
+        Dans le cadre de ma formation en GEII, j’ai eu l’opportunité de réaliser deux stages au sein de l’entreprise <strong>SADTEM</strong>, située à Douai. Cette société conçoit et fabrique des transformateurs de mesure moyenne tension pour des réseaux électriques du monde entier.
+    </p>
 
-        <div class="stage-item">
-            <div class="stage-content">
-                <h3>Chef de projet stagiaire - SADTEM (Douai)</h3>
-                <p>Durant mon second stage, j’ai occupé le poste de chef de projet, avec pour mission d’améliorer la sécurité, l’organisation et les conditions de travail sur les postes d’essai des transformateurs de tension et de courant.</p>
-            </div>
-        </div>
+    <div class="stage-item">
+        <h3>Premier stage – Technicien stagiaire (2024)</h3>
+        <p>
+            Lors de ce premier stage, j’ai intégré les ateliers de production pour assister aux opérations de contrôle qualité. Ma mission principale était de qualifier un revêtement antistatique pour transformateurs. Ce travail exigeait rigueur, précision, et une bonne compréhension des contraintes industrielles. Ce fut une première immersion précieuse dans un environnement technique exigeant.
+        </p>
+    </div>
+
+    <div class="stage-item">
+        <h3>Deuxième stage – Chef de projet stagiaire (2025)</h3>
+        <p>
+            Mon second stage, d’une durée de 13 semaines (du 10 mars au 6 juin 2025), s’est déroulé au sein du service maintenance/production. J’avais pour mission de concevoir deux cellules d’essais pour transformateurs de tension et de courant (TT/TC). J’ai élaboré un cahier des charges, mis en œuvre des solutions d'automatisme, intégré les aspects sécurité et ergonomie, et supervisé la réalisation concrète d’une cellule fonctionnelle. Cette mission m’a permis de combiner mes compétences techniques avec de la gestion de projet.
+        </p>
     </div>
 
     <img src="images/sadtem-batiment.png" alt="Bâtiment SADTEM" class="sadtem-photo">
+
+    <h3>À propos de l'entreprise SADTEM</h3>
+    <ul>
+        <li><strong>Fondée en :</strong> 1929 à Douai</li>
+        <li><strong>Spécialité :</strong> Transformateurs de courant et de tension moyenne tension</li>
+        <li><strong>Exportation :</strong> Plus de 70 pays</li>
+        <li><strong>Certifications :</strong> ISO 9001:2015, CSA, LABORELEC</li>
+        <li><strong>Secteurs :</strong> Énergie, ferroviaire, industries lourdes</li>
+    </ul>
 </section>
+
+</body>
+</html>
+
 
